@@ -7,6 +7,7 @@ import lombok.Data;
 
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author  TyCoding
@@ -29,4 +30,6 @@ public class SysUser implements Serializable {
     private String avatar;
     private String introduce;
     private String remark;
+    /** 上次登录时间 **/
+    private Date lastLoginTime;
 }
