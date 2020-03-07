@@ -15,7 +15,7 @@
                   <span id="welcome-message" v-html="welcomeMessage"></span>
                 </div>
                 <div class="user-login-info">
-                  上次登录时间：<span id="last-login-time">2020-02-25T16:45:36.000+0000</span>
+                  上次登录时间：<span id="last-login-time" v-html="lastLoginTime">2020-02-25T16:45:36.000+0000</span>
                 </div>
               </div>
             </div>
@@ -198,9 +198,9 @@
                     联系我
                   </div>
                   <div class="info-text">
-                    Blog：<a href="http://tycoding.cn" target="_blank">http://tycoding.cn</a>
+                    Blog：<a href="http://www.guokangjie.cn" target="_blank">http://www.guokangjie.cn/</a>
                     <br/>
-                    Github：<a href="https://github.com/TyCoding/" target="_blank">https://github.com/TyCoding/</a>
+                    Github：<a href="https://github.com/wandun" target="_blank">https://github.com/wandun/</a>
                     <br/>
                     QQ Group: 671017003
                   </div>
@@ -233,7 +233,8 @@
       ...mapGetters([
         'sidebar',
         'avatar',
-        'name'
+        'name',
+        'lastLoginTime'
       ])
       // mapGetters是vuex的语法，用于将vuex的getters映射到某个组件的计算属性里
     },

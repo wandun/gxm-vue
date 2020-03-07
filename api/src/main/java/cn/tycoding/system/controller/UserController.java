@@ -10,6 +10,8 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 /**
  * @author TyCoding
  * @date 2018/10/18
@@ -25,6 +27,14 @@ public class UserController extends BaseController {
     @GetMapping("/info")
     public R getInfo() {
         SysUser user = this.getCurrentUser();
+        // 跟新用户登录时间
+        SysUser sysUser = userService.findByName(user.getUsername());
+        userService.updateById(new SysUser(){
+            {
+                setId(sysUser.getId());
+                setLastLoginTime(new Date());
+            }
+        });
         return new R<>(user);
     }
 

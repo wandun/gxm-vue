@@ -6,6 +6,7 @@ const getters = {
   device: state => state.app.device,
   token: state => state.user.token,
   avatar: state => state.user.avatar,
+  lastLoginTime: state => state.user.lastLoginTime,
   name: state => state.user.name,
   qiNiuUploadApi: state => state.api.qiNiuUploadApi,
   swaggerApi: state => state.api.swaggerApi

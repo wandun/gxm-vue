@@ -3,7 +3,7 @@
     <header id="header" class="header bg-white">
       <div class="navbar-container">
         <a href="/" class="navbar-logo">
-          <img src="/logo.png" alt="Tumo">
+          <img src="/logo.png" alt="Gxm">
         </a>
         <div class="navbar-menu">
           <a href="/archives">Archives</a>
@@ -28,9 +28,9 @@
       <div class="footer-social">
         <div class="footer-container clearfix">
           <div class="social-list">
-            <a class="social rss" target="blank" href="https://tycoding.cn/">BLOG</a>
-            <a class="social zhihu" target="blank" href="https://www.zhihu.com/people/tomo-83-82/activities">ZHIHU</a>
-            <a class="social github" target="blank" href="https://github.com/TyCoding">GITHUB</a>
+            <a class="social rss" target="blank" href="http://www.guokangjie.cn/">BLOG</a>
+            <a class="social zhihu" target="blank" href="https://www.zhihu.com">ZHIHU</a>
+            <a class="social github" target="blank" href="https://github.com/wandun">GITHUB</a>
           </div>
         </div>
       </div>
@@ -39,7 +39,7 @@
           <div class="meta-item meta-copyright">
             <div class="meta-copyright-info">
               <a href="/" class="info-logo">
-                <img src="/logo.png" alt="Tumo">
+                <img src="/logo.png" alt="Gxm">
               </a>
               <div class="info-text"><p id="chakhsu">I work with J<span
                 style="color: rgb(255, 120, 71);">&amp;</span><span
@@ -49,8 +49,8 @@
               </p>
                 <p>Theme is <a href="https://github.com/chakhsu/pinghsu" target="_blank">Pinghsu</a> by <a
                   href="https://www.linpx.com/" target="_blank">Chakhsu</a></p>
-                <p>Powered by <a href="http://www.typecho.org" target="_blank" rel="nofollow">Typecho</a></p>
-                <p>© 2020 <a href="https://tycoding.cn/">TyCoding</a></p></div>
+                <p>Powered by <a href="http://www.guokangjie.cn/" target="_blank" rel="nofollow">Gxm</a></p>
+                <p>© 2020 <a href="http://www.guokangjie.cn/">GxmCoding</a></p></div>
             </div>
           </div>
           <div class="meta-item meta-posts">

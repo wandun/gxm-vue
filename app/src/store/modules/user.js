@@ -6,7 +6,8 @@ import store from "../index";
 const state = {
   token: getToken(),
   name: '',
-  avatar: ''
+  avatar: '',
+  lastLoginTime:''
 }
 
 const mutations = {
@@ -18,6 +19,9 @@ const mutations = {
   },
   SET_AVATAR: (state, avatar) => {
     state.avatar = avatar
+  },
+  SET_LAST_LOGIN_TIME: (state, lastLoginTime) => {
+    state.lastLoginTime = lastLoginTime
   }
 }
 
@@ -49,6 +53,7 @@ const actions = {
         }
         commit('SET_NAME', data.username)
         commit('SET_AVATAR', data.avatar)
+        commit('SET_LAST_LOGIN_TIME', data.lastLoginTime)
         resolve(data)
       }).catch(error => {
         reject(error)
