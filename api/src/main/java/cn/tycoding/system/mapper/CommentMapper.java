@@ -14,4 +14,10 @@ import java.util.List;
 public interface CommentMapper extends BaseMapper<SysComment> {
 
     List<SysComment> findAll(@Param("state") String state, @Param("queryPage") QueryPage queryPage);
+
+    /**
+     * 查询所有的评论总数
+     * @return
+     */
+    Integer findAllCommentsNum();
 }

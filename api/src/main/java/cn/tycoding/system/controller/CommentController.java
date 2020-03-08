@@ -34,6 +34,12 @@ public class CommentController extends BaseController {
     @Autowired
     private CommentService commentService;
 
+    @GetMapping("/findAllCommentsNum")
+    public R findAllCommentsNum() {
+        return new R<>(commentService.findAllCommentsNum());
+    }
+
+
     /**
      * 查询最新的8条评论
      *
@@ -41,7 +47,7 @@ public class CommentController extends BaseController {
      */
     @GetMapping("/findAll")
     public R findAll() {
-        return new R<>(commentService.findAll());
+        return new R<>(commentService.findAllCommentsNum());
     }
 
     @GetMapping("/listForArticle")

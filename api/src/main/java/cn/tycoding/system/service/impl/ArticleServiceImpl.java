@@ -44,6 +44,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, SysArticle> i
     private ArticleTagService articleTagService;
 
     @Override
+    public Integer findAllArticleNum() {
+        return articleMapper.findAllArticleNum();
+    }
+
+    @Override
     public List<SysArticle> findAll() {
         LambdaQueryWrapper<SysArticle> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.orderByDesc(SysArticle::getId);
@@ -106,13 +111,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, SysArticle> i
     }
 
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public void add(SysArticle sysArticle) {
         try {
             if (sysArticle.getState() == null) {
                 sysArticle.setState(CommonConstant.DEFAULT_DRAFT_STATUS);
             }
-            if (sysArticle.getPublishTime() == null && sysArticle.getState() == "1") {
+            if ("1".equals(sysArticle.getState())) {
                 sysArticle.setPublishTime(new Date());
             }
             sysArticle.setAuthor(((SysUser) SecurityUtils.getSubject().getPrincipal()).getUsername());
@@ -152,7 +157,7 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, SysArticle> i
     @Override
     @Transactional
     public void update(SysArticle sysArticle) {
-        if (sysArticle.getPublishTime() == null && sysArticle.getState().equals("1")) {
+        if ("1".equals(sysArticle.getState())) {
             sysArticle.setPublishTime(new Date());
         }
         articleMapper.updateById(sysArticle);

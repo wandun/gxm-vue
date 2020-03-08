@@ -125,4 +125,9 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, SysComment> i
         commentMapper.deleteById(id);
     }
 
+    @Override
+    public Integer findAllCommentsNum() {
+        return commentMapper.findAllCommentsNum();
+    }
+
 }

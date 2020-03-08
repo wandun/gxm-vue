@@ -11,7 +11,7 @@ public interface SiteConstant {
     /**
      * 博客前台默认每页显示多少条博文
      */
-    int DEFAULT_PAGE_LIMIT = 12;
+    int DEFAULT_PAGE_LIMIT = 9;
 
     /**
      * Footer模块最新文章的Model对象Key值

@@ -145,6 +145,8 @@
         }
 
         this.form.state = 1
+        console.log(this.form)
+        console.log(JSON.stringify(this.form))
         add(this.form).then(res => {
           console.log(res)
           this.$message.success(res.msg)

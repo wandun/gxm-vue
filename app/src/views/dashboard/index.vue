@@ -33,13 +33,13 @@
                 <div slot="header" class="box-text">
                   <span>文章总量</span>
                 </div>
-                <div class="box-num">12</div>
+                <div class="box-num" v-html="allArticleNum">0</div>
               </el-card>
               <el-card class="box-card">
                 <div slot="header" class="box-text">
                   <span>评论总量</span>
                 </div>
-                <div class="box-num">12</div>
+                <div class="box-num" v-html="allCommentsNum">0</div>
               </el-card>
             </div>
           </el-col>
@@ -117,50 +117,50 @@
         <el-row>
           <!-- 进行中的项目 -->
           <el-col>
-            <el-card class="project-card">
-              <div slot="header">
-                <span>进行中的项目</span>
-                <el-button style="float: right; padding: 3px 0" type="text">所有项目</el-button>
-              </div>
-              <div>
-                <el-row>
-                  <el-col class="project-item" :xs="12" :sm="12" :lg="12">
-                    <div class="project-name">
-                      <a target="_blank" href="https://github.com/TyCoding/tumo">Tumo</a>
-                    </div>
-                    <div class="project-desc">
-                      Spring Boot 2.1.3 &amp; Shiro 博客系统。
-                    </div>
-                  </el-col>
-                  <el-col class="project-item" :xs="12" :sm="12" :lg="12">
-                    <div class="project-name">
-                      <a target="_blank" href="https://github.com/TyCoding/permission">Permission</a>
-                    </div>
-                    <div class="project-desc">
-                      Spring Boot &amp; Shiro 权限管理系统。
-                    </div>
-                  </el-col>
-                </el-row>
-                <el-row>
-                  <el-col class="project-item" :xs="12" :sm="12" :lg="12">
-                    <div class="project-name">
-                      <a target="_blank" href="https://github.com/TyCoding/cloud-template">Cloud Template</a>
-                    </div>
-                    <div class="project-desc">
-                      SpringCloud Greenwich.SR1 &amp; Spring Boot &amp; Vue 微服务架构模板。
-                    </div>
-                  </el-col>
-                  <el-col class="project-item" :xs="12" :sm="12" :lg="12">
-                    <div class="project-name">
-                      <a target="_blank" href="https://github.com/TyCoding/scst">Spring Cloud Security Template</a>
-                    </div>
-                    <div class="project-desc">
-                      SpringCloud Greenwich.SR1 &amp; Spring Security &amp; Vue 微服务权限管理系统。
-                    </div>
-                  </el-col>
-                </el-row>
-              </div>
-            </el-card>
+            <!--<el-card class="project-card">-->
+              <!--<div slot="header">-->
+                <!--<span>最新stars项目</span>-->
+                <!--<el-button style="float: right; padding: 3px 0" type="text">所有Stars项目</el-button>-->
+              <!--</div>-->
+              <!--<div>-->
+                <!--<el-row>-->
+                  <!--<el-col class="project-item" :xs="12" :sm="12" :lg="12">-->
+                    <!--<div class="project-name">-->
+                      <!--<a target="_blank" href="https://github.com/TyCoding/tumo">Tumo</a>-->
+                    <!--</div>-->
+                    <!--<div class="project-desc">-->
+                      <!--Spring Boot 2.1.3 &amp; Shiro 博客系统。-->
+                    <!--</div>-->
+                  <!--</el-col>-->
+                  <!--<el-col class="project-item" :xs="12" :sm="12" :lg="12">-->
+                    <!--<div class="project-name">-->
+                      <!--<a target="_blank" href="https://github.com/TyCoding/permission">Permission</a>-->
+                    <!--</div>-->
+                    <!--<div class="project-desc">-->
+                      <!--Spring Boot &amp; Shiro 权限管理系统。-->
+                    <!--</div>-->
+                  <!--</el-col>-->
+                <!--</el-row>-->
+                <!--<el-row>-->
+                  <!--<el-col class="project-item" :xs="12" :sm="12" :lg="12">-->
+                    <!--<div class="project-name">-->
+                      <!--<a target="_blank" href="https://github.com/TyCoding/cloud-template">Cloud Template</a>-->
+                    <!--</div>-->
+                    <!--<div class="project-desc">-->
+                      <!--SpringCloud Greenwich.SR1 &amp; Spring Boot &amp; Vue 微服务架构模板。-->
+                    <!--</div>-->
+                  <!--</el-col>-->
+                  <!--<el-col class="project-item" :xs="12" :sm="12" :lg="12">-->
+                    <!--<div class="project-name">-->
+                      <!--<a target="_blank" href="https://github.com/TyCoding/scst">Spring Cloud Security Template</a>-->
+                    <!--</div>-->
+                    <!--<div class="project-desc">-->
+                      <!--SpringCloud Greenwich.SR1 &amp; Spring Security &amp; Vue 微服务权限管理系统。-->
+                    <!--</div>-->
+                  <!--</el-col>-->
+                <!--</el-row>-->
+              <!--</div>-->
+            <!--</el-card>-->
           </el-col>
           <!-- 版本信息 -->
           <el-col>
@@ -182,17 +182,17 @@
                     基于框架
                   </div>
                   <div class="info-text">
-                    SpringBoot2.1.3 / Shiro / LayUI
+                    SpringBoot2.1.3 /Vue / ElementUI
                   </div>
                 </el-card>
-                <el-card class="info-item-card" shadow="never">
-                  <div class="info-header">
-                    博客源码
-                  </div>
-                  <div class="info-text">
-                    <a href="https://github.com/TyCoding/tumo" target="_blank">https://github.com/TyCoding/tumo</a>
-                  </div>
-                </el-card>
+                <!--<el-card class="info-item-card" shadow="never">-->
+                  <!--<div class="info-header">-->
+                    <!--博客源码-->
+                  <!--</div>-->
+                  <!--<div class="info-text">-->
+                    <!--<a href="https://github.com/TyCoding/tumo" target="_blank">https://github.com/TyCoding/tumo</a>-->
+                  <!--</div>-->
+                <!--</el-card>-->
                 <el-card class="info-item-card" shadow="never">
                   <div class="info-header">
                     联系我
@@ -202,7 +202,7 @@
                     <br/>
                     Github：<a href="https://github.com/wandun" target="_blank">https://github.com/wandun/</a>
                     <br/>
-                    QQ Group: 671017003
+                    Mail : gxmtolsj@gmail.com
                   </div>
                 </el-card>
               </div>
@@ -215,8 +215,8 @@
 </template>
 
 <script>
-  import { getCommentList } from '@/api/comment'
-  import { getArticleList } from '@/api/article'
+  import { getCommentList,getAllCommentsNum } from '@/api/comment'
+  import { getArticleList,getAllArticleNum } from '@/api/article'
   import { mapGetters } from 'vuex'
   import GithubCorner from '@/components/GithubCorner'
   import PanThumb from '@/components/PanThumb'
@@ -248,7 +248,9 @@
           limit: 10
         },
         activeName: 'first',
-        welcomeMessage: null
+        welcomeMessage: null,
+        allCommentsNum:0,
+        allArticleNum: 0
       }
     },
     created() {
@@ -265,6 +267,12 @@
         getCommentList({}, this.listQuery).then(response => {
           this.commentList = response.data.rows
           this.listLoading = false
+        })
+        getAllArticleNum().then(response => {
+          this.allArticleNum  = response.data
+        })
+        getAllCommentsNum().then(response => {
+          this.allCommentsNum  = response.data
         })
       },
 

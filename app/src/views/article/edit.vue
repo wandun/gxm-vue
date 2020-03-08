@@ -86,8 +86,8 @@
             this.categoryList = response.data
 
             for (let i = 0; i < this.categoryList.length; i++) {
-              if (response.data[i].id == res.data.category) {
-                this.form.category = response.data[i].name
+              if (response.data[i].name == res.data.category) {
+                this.form.category = response.data[i].id
               }
             }
           })
@@ -159,6 +159,7 @@
         }
 
         this.form.state = 1
+        console.log("修改 发布"+JSON.stringify(this.form))
         update(this.form).then(res => {
           this.$router.replace('/admin/article/list')
         })

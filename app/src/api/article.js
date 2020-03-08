@@ -8,6 +8,13 @@ export function getArticleList(data, query) {
   })
 }
 
+export function getAllArticleNum() {
+  return request({
+    url: `/api/article/getAllArticleNum`,
+    method: 'get'
+  })
+}
+
 export function findAllArticle() {
   return request({
     url: `/api/article/findAll`,

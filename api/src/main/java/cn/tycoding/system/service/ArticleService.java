@@ -15,6 +15,13 @@ import java.util.List;
 public interface ArticleService extends IService<SysArticle> {
 
     /**
+     * 查询所有的文章总数
+     * @return
+     */
+    Integer findAllArticleNum();
+
+
+    /**
      * 查询最新的8条记录
      *
      * @return

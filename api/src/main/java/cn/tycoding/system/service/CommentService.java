@@ -67,4 +67,11 @@ public interface CommentService extends IService<SysComment> {
      * @param id
      */
     void delete(Long id);
+
+
+    /**
+     * 查询所有的评论总数
+     * @return
+     */
+    Integer findAllCommentsNum();
 }

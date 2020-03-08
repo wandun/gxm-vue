@@ -7,10 +7,12 @@ import cn.tycoding.common.controller.BaseController;
 import cn.tycoding.common.exception.GlobalException;
 import cn.tycoding.common.utils.QueryPage;
 import cn.tycoding.common.utils.R;
+import cn.tycoding.system.entity.ArticleCategory;
 import cn.tycoding.system.entity.SysArticle;
 import cn.tycoding.system.entity.SysCategory;
 import cn.tycoding.system.entity.SysTag;
 import cn.tycoding.system.entity.dto.ArchivesWithArticle;
+import cn.tycoding.system.service.ArticleCategoryService;
 import cn.tycoding.system.service.ArticleService;
 import cn.tycoding.system.service.ArticleTagService;
 import cn.tycoding.system.service.CategoryService;
@@ -21,6 +23,7 @@ import io.swagger.annotations.Api;
 import org.apache.commons.lang3.StringUtils;
 import org.jsoup.Jsoup;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -44,6 +47,18 @@ public class ArticleController extends BaseController {
 
     @Autowired
     private CategoryService categoryService;
+
+
+
+    /**
+     * 查询文章前8条数量
+     *
+     * @return
+     */
+    @GetMapping("/getAllArticleNum")
+    public R getAllArticleNum() {
+        return new R<>(articleService.findAllArticleNum());
+    }
 
     /**
      * 查询文章前8条数量
@@ -130,8 +145,10 @@ public class ArticleController extends BaseController {
         return new R<>(articleService.findArchives());
     }
 
+
     @PostMapping
     @Log("新增文章")
+    @Transactional
     public R save(@RequestBody SysArticle sysArticle) {
         try {
             articleService.add(sysArticle);

@@ -24,4 +24,8 @@
             publish_time LIKE CONCAT ('%', #{date}, '%')
     </select>
 
+    <select id="findAllArticleNum" resultType="Integer">
+        SELECT count(1) FROM tb_article
+    </select>
+
 </mapper>

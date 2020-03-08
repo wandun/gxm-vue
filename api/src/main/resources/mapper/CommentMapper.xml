@@ -19,4 +19,8 @@
             LIMIT #{queryPage.page}, #{queryPage.limit}
     </select>
 
+
+    <select id="findAllCommentsNum" resultType="Integer">
+        SELECT count(1) FROM tb_comment
+    </select>
 </mapper>

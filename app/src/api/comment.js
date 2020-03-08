@@ -8,6 +8,13 @@ export function getCommentList(data, query) {
   })
 }
 
+export function getAllCommentsNum() {
+  return request({
+    url: `/api/comment/findAllCommentsNum`,
+    method: 'get'
+  })
+}
+
 export function findAllComment() {
   return request({
     url: `/api/comment/findAll`,
