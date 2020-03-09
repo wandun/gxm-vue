@@ -98,7 +98,7 @@
         }
         if (res.code == 200) {
           this.$message.success(res.msg)
-          this.form.cover = res.data.url;
+          this.form.cover = res.data.url
         }
       },
       beforeAvatarUpload(file) {

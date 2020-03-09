@@ -45,7 +45,7 @@
           <el-button type="primary" size="mini" @click="handleUpdate(row)">
             Edit
           </el-button>
-          <el-button size="mini" type="danger" @click="handleDel(row.id)">
+          <el-button size="mini" type="danger" @click="handleDel(row.name)">
             Delete
           </el-button>
         </template>
@@ -77,8 +77,8 @@
             </el-upload>
         </span>
         <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogAddVisible = false">取 消</el-button>
-            <el-button type="primary" @click="submitAction">确 定</el-button>
+            <!--<el-button @click="dialogAddVisible = false">取 消</el-button>-->
+            <el-button type="primary" @click="uploadImgAction">确 定</el-button>
         </span>
     </el-dialog>
   </div>
@@ -103,7 +103,8 @@
         fileList: [],
         tokenHeader: {},
         dialogVisible: false,
-        dialogAddVisible: false
+        dialogAddVisible: false,
+        oldName:''
       }
     },
     created() {
@@ -111,6 +112,8 @@
       this.fetchData()
     },
     methods: {
+
+      /** 重新获取上传的图片列表 **/
       fetchData() {
         this.listLoading = true
         getList().then(response => {
@@ -119,33 +122,43 @@
         })
       },
 
+      /** 处理图片上传完成事件 **/
+      uploadImgAction(){
+        this.dialogAddVisible = false;
+        this.fetchData();
+      },
+      /** 处理上传的图片跟新 **/
       handleUpdate(row) {
         this.form = row
+        this.oldName = row.name
         this.dialogVisible = true
       },
 
+      /** 修改图片 **/
       submitAction() {
-        update(this.form).then(res => {
-          this.$message.success(res.msg)
-          this.fetchData()
-        })
-        this.handleClose()
+        update(this.oldName,this.form.name).then(response => {
+          this.$message.success(response.msg)
+        });
+        this.dialogVisible = false
+        this.fetchData();
       },
 
+      /** 关闭可能以开启的 dialog **/
       handleClose() {
         this.form = {}
         this.dialogVisible = false
         this.dialogAddVisible = false
       },
 
-      handleDel(id) {
+      /** 山吹已经上传的图片 **/
+      handleDel(name) {
         this.$confirm('你确定永久删除此条记录？', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning',
           center: true
         }).then(() => {
-          del(id).then(response => {
+          del(name).then(response => {
             this.$message.success(response.msg)
             this.fetchData();
           });

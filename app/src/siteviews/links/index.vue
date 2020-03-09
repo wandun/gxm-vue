@@ -22,8 +22,8 @@
         </blockquote>
         <p>备注：默认申请友情链接均为内页（当前页面）</p>
         <h3>基本信息</h3>
-        <pre><code class="lang-md hljs markdown">网站名称：Tumo
-网站地址：www.tumo.tycoding.cn</code></pre>
+        <pre><code class="lang-md hljs markdown">网站名称：Gxm
+网站地址：http://www.guokangjie.cn/</code></pre>
         <p>暂时先这样，同时欢迎互换友链，这个页面留言即可。 ^_^</p>
         <p>还有，我会不定时对无法访问的网址进行清理，请保证自己的链接长期有效。</p></div>
     </article>

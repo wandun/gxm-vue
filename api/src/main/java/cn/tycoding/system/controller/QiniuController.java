@@ -124,29 +124,10 @@ public class QiniuController {
         QiniuProperties qiniu = properties.getQiniu();
         this.check(qiniu);
         if (!file.isEmpty()) {
-            //上传文件路径
-            String FilePath = "";
             //上传到七牛后保存的文件名
-            String key = new Date().getTime() + "";
+            String key = System.currentTimeMillis() + "";
 
             try {
-                //将MutipartFile对象转换为File对象，相当于需要以本地作为缓冲区暂时储存文件
-                //获取文件在服务器的储存位置
-                File path = new File(ResourceUtils.getURL("classpath:").getPath());
-                File filePath = new File(path.getAbsolutePath(), "upload/");
-                if (!filePath.exists() && !filePath.isDirectory()) {
-                    log.info("目录不存在，创建目录===========>" + filePath);
-                    filePath.mkdir();
-                }
-                String filename = file.getOriginalFilename(); //获取原始文件名称
-                key += filename.substring(filename.lastIndexOf(".")); //获取文件类型
-
-                File localFile = new File(filePath, key);
-                file.transferTo(localFile); //写入磁盘
-                log.info("文件原始路径=========>" + filePath);
-                log.info("新文件名称===========>" + key);
-                FilePath = filePath + "/" + key;
-
                 //密钥配置
                 Auth auth = Auth.create(qiniu.getAk(), qiniu.getSk());
                 //第二种方式: 自动识别要上传的空间(bucket)的存储区域是华东、华北、华南。
@@ -155,17 +136,13 @@ public class QiniuController {
                 //创建上传对象
                 UploadManager uploadManager = new UploadManager(c);
                 //调用put方法上传
-                Response res = uploadManager.put(FilePath, key, auth.uploadToken(qiniu.getBn()));
+                Response res = uploadManager.put(file.getBytes(), key, auth.uploadToken(qiniu.getBn()));
                 //打印返回的信息
                 //res.bodyString() 返回数据格式： {"hash":"FlHXdiArTIzeNy94EOxzlCQC7pDS","key":"1074213185631420416.png"}
                 log.info("文件上传成功============>" + res.bodyString());
                 Map map = new HashMap<>();
                 map.put("name", key);
                 map.put("url", qiniu.getUrl() + key);
-
-                if (localFile.exists()) {
-                    localFile.delete(); //删除本地缓存的文件
-                }
                 return new R<>(map);
             } catch (Exception e) {
                 e.printStackTrace();
